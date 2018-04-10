@@ -6,17 +6,24 @@ import Page2 from '../pages/Page2';
 
 export const AppStackNavigator = StackNavigator({
     HomePage: {
-        screen: HomePage
+        screen: HomePage,
+        navigationOptions: {
+            //title: '首页'
+        }
     },
     Page1: {
         screen: Page1,
+        navigationOptions:({navigation}) => ({
+            title: `${navigation.state.params.name}页面名`
+        })
         
-        navigationOptions:{
-            header: null
-        }
     },
     Page2: {
-        screen: Page2
+        screen: Page2,
+        navigationOptions:{
+            //header: null,
+            title: 'Page2'
+        }
     }
     
 

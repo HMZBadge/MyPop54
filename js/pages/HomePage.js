@@ -20,31 +20,37 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
+
 type Props = {};
 export default class HomePage extends Component<Props> {
-  render() {
-      const {navigation} = this.props;
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to HomePage
-        </Text>
-        <Button 
-            title="go to page1"
-            onPress={()=>{
-                navigation.navigate('Page1')
-            }}
-        />
 
-        <Button 
-            title="go to page2"
-            onPress={()=>{
-                navigation.navigate('Page2')
-            }}
-        />
-      </View>
-    );
-  }
+    static navigationOptions= {
+        title: "HomPage"
+    }
+    render() {
+        const {navigation} = this.props;
+        
+        return (
+        <View style={styles.container}>
+            <Text style={styles.welcome}>
+            Welcome to HomePage
+            </Text>
+            <Button 
+                title="go to page1"
+                onPress={()=>{
+                    navigation.navigate('Page1', {name: '动态的'})
+                }}
+            />
+
+            <Button 
+                title="go to page2"
+                onPress={()=>{
+                    navigation.navigate('Page2')
+                }}
+            />
+        </View>
+        );
+    } 
 }
 
 const styles = StyleSheet.create({
