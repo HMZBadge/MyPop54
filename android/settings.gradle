@@ -1,0 +1,3 @@
+rootProject.name = 'MyPop54'
+
+include ':app'
