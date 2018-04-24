@@ -35,6 +35,17 @@ export default class Page1 extends Component<Props> {
               navigation.goBack();
             }}
         />
+         <Button 
+            title = "改变主题"  
+            onPress = {()=>{
+              navigation.setParams({
+                  theme: { 
+                    tintColor: 'red',
+                    updateTime: new Date().getTime()
+                  }
+              })
+            }}
+        />
       </View>
     );
   }

@@ -5,9 +5,33 @@ import Page2 from '../pages/Page2';
 import Page3 from "../pages/Page3";
 
 import React from 'react';
-import Button from 'react-native';
+import {Component} from 'react-native';
+
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
+
+class TabBarComponent extends React.Component {
+    constructor(props) {
+        super(props);
+        this.theme = {
+            tintColor: props.activeTintColor,
+            updateTime: new Date().getTime()
+        };
+    }
+    render() {
+        
+        const {routes, index} = this.props.navigationState;
+        //console.log('routes'+routes);
+        const {theme} = routes[index].params;
+        if (theme&&theme.updateTime>this.theme.updateTime) {
+            this.theme = theme;
+        }
+        return <TabBarBottom 
+            {...this.props}
+            activeTintColor={this.theme.tintColor||this.props.activeTintColor}
+        />
+    }
+}
 
 export const AppTabNavigator = TabNavigator({
     Page1:{
@@ -49,10 +73,14 @@ export const AppTabNavigator = TabNavigator({
                 />
             ),
         }
-    }
+    },
+    
 
-})
-export const AppStackNavigator = StackNavigator({
+}, {
+    tabBarComponent: TabBarComponent,
+});
+
+export const AppStackNavigator = StackNavigator  ({
     HomePage: {
         screen: HomePage,
         navigationOptions: {
@@ -86,11 +114,11 @@ export const AppStackNavigator = StackNavigator({
                 // )
             }
         }
-
+    },
+    TabNav:{
+        screen: AppTabNavigator,
+        navigationOptions:{
+            title: 'this is a TabNavigator'
+        }
     }
-    
-
-
-}
-
-);
+});
