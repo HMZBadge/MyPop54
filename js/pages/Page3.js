@@ -21,7 +21,7 @@ export default class Page3 extends Component<Props> {
     const {navigation} = this.props;
     const {state, setParams}=navigation;
     return (
-      <View style={styles.container}>
+      <View style={styles.container}> 
         <Text style={styles.welcome}>
           Welcome to Page3
         </Text>
