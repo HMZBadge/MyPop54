@@ -1,8 +1,8 @@
-import { AppStackNavigator } from "./js/Common/AppNavigator";
+import { AppStackNavigator, AppTabNavigator } from "./js/Common/AppNavigator";
 
 
 
-export default AppStackNavigator;
+export default AppTabNavigator;
 
 
 // /**
