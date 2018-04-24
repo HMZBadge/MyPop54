@@ -29,11 +29,17 @@ export default class Page2 extends Component<Props> {
               navigation.goBack();
             }}
         />
+        <Button 
+            title = "Go to Page1"
+            onPress = {()=>{
+              navigation.navigate('Page1'); 
+            }}
+        />
          <Button 
             title = "改变主题"  
             onPress = {()=>{
               navigation.setParams({
-                  theme: { 
+                theme: { 
                     tintColor: 'red',
                     updateTime: new Date().getTime()
                   }

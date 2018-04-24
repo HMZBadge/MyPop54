@@ -27,7 +27,7 @@ class TabBarComponent extends React.Component {
             this.theme = theme;
         }
         return <TabBarBottom 
-            {...this.props}
+            { ...this.props }
             activeTintColor={this.theme.tintColor||this.props.activeTintColor}
         />
     }
@@ -35,7 +35,6 @@ class TabBarComponent extends React.Component {
 
 export const AppTabNavigator = TabNavigator({
     Page1:{
-        screen: Page1,
         screen: Page1,
         navigationOptions:{
             tabBarLabel:'Page1',
@@ -51,7 +50,7 @@ export const AppTabNavigator = TabNavigator({
     Page2:{
         screen: Page2,
         navigationOptions:{
-            tabBarLabel:'Page1',
+            tabBarLabel:'Page2',
             tabBarIcon:({tintColor, focused})=>(
                 <Ionicons 
                     name={focused ? 'ios-people' : 'ios-people-outline'}
@@ -64,7 +63,7 @@ export const AppTabNavigator = TabNavigator({
     Page3:{
         screen: Page3,
         navigationOptions:{
-            tabBarLabel:'Page1',
+            tabBarLabel:'Page3',
             tabBarIcon:({tintColor, focused})=>(
                 <Ionicons 
                     name={focused ? 'ios-chatboxes' : 'ios-chatboxes-outline'}
@@ -73,7 +72,7 @@ export const AppTabNavigator = TabNavigator({
                 />
             ),
         }
-    },
+    }
     
 
 }, {
@@ -109,9 +108,6 @@ export const AppStackNavigator = StackNavigator  ({
             const {params}=state;
             return {
                 title:params.title ? params.title : 'This is Page3',
-                // headerRight: (
-                    
-                // )
             }
         }
     },
@@ -120,5 +116,9 @@ export const AppStackNavigator = StackNavigator  ({
         navigationOptions:{
             title: 'this is a TabNavigator'
         }
+    }
+}, {
+    navigationOptions: {
+
     }
 });
