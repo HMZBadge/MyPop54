@@ -10,18 +10,20 @@ import {
   StyleSheet,
   Text,
   Button,
+  TextInput,
   View
 } from 'react-native';
 
 
 type Props = {};
-export default class Page2 extends Component<Props> {
+export default class Page3 extends Component<Props> {
   render() {
     const {navigation} = this.props;
+    const {state, setParams}=navigation;
     return (
-      <View style={styles.container}>
+      <View style={styles.container}> 
         <Text style={styles.welcome}>
-          Welcome to Page2
+          Welcome to Page3
         </Text>
         <Button 
             title = "Go Back"
@@ -29,38 +31,31 @@ export default class Page2 extends Component<Props> {
               navigation.goBack();
             }}
         />
-        <Button 
-            title = "Go to Page1"
-            onPress = {()=>{
-              navigation.navigate('Page1'); 
+        <TextInput 
+            style={styles.input}
+            onChangeText={(text)=> {
+                setParams({title: text});
             }}
         />
-         <Button 
-            title = "改变主题"  
-            onPress = {()=>{
-              navigation.setParams({
-                theme: { 
-                    tintColor: 'red',
-                    updateTime: new Date().getTime()
-                  }
-              })
-            }}
-        />
-      </View>
+      </View> 
     );
   }
 }
 
 const styles = StyleSheet.create({
+  input: {
+    height: 50,
+    borderWidth: 1,
+    width: 200,
+    marginTop: 20, 
+  },
   container: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
   welcome: {
     fontSize: 20,
-    textAlign: 'center',
     margin: 10,
   },
   instructions: {
