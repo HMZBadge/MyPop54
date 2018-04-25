@@ -9,6 +9,7 @@ import {Component} from 'react-native';
 
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 class TabBarComponent extends React.Component {
     constructor(props) {
@@ -18,17 +19,23 @@ class TabBarComponent extends React.Component {
             updateTime: new Date().getTime()
         };
     }
+
     render() {
-        
         const {routes, index} = this.props.navigationState;
-        //console.log('routes'+routes);
-        const {theme} = routes[index].params;
-        if (theme&&theme.updateTime>this.theme.updateTime) {
+        let params = routes[index]['params'];
+        var theme = '';
+        if (params) {
+            theme = params.theme;
+        } else {
+            theme = 'gray';
+        }        
+        //const {theme} = routes[index].params;
+        if (theme && theme.updateTime > this.theme.updateTime) {
             this.theme = theme;
         }
-        return <TabBarBottom 
-            { ...this.props }
-            activeTintColor={this.theme.tintColor||this.props.activeTintColor}
+        return <TabBarBottom
+            {...this.props}
+            activeTintColor={this.theme.tintColor || this.props.activeTintColor}
         />
     }
 }
@@ -77,46 +84,61 @@ export const AppTabNavigator = TabNavigator({
 
 }, {
     tabBarComponent: TabBarComponent,
+    tabBarOptions: {
+        //activeTintColor: Platform.OS === 'ios' ? '#e91e61' : '#fff'
+    }
 });
 
-export const AppStackNavigator = StackNavigator  ({
+
+export const AppStackNavigator = StackNavigator({
     HomePage: {
         screen: HomePage,
-        navigationOptions: {
-            title: 'HomePage',
-        }
     },
     Page1: {
         screen: Page1,
-        navigationOptions:({navigation}) => ({
+        navigationOptions: ({navigation}) => ({
             title: `${navigation.state.params.name}页面名`
         })
     },
     Page2: {
         screen: Page2,
         navigationOptions: {
-            title: 'Page2'
+            title: "Page3"
         }
     },
     Page3: {
         screen: Page3,
-        navigationOptions: (props)=> {
-            const {navigation}=props;
-            const {state, setParams}=navigation;
-            const {params}=state;
+        navigationOptions: (props) => {
+            const {navigation} = props;
+            const {state, setParams} = navigation;
+            const {params} = state;
             return {
-                title:params.title ? params.title : 'This is Page3',
+                title: params.title ? params.title : 'This is Page3',
+                headerRight: (
+                    <Button
+                        title={params.mode === 'edit' ? '保存' : '编辑'}
+                        onPress={() => {
+                            setParams({mode: params.mode === 'edit' ? "" : "edit"})
+                        }}
+                    />
+                )
             }
         }
     },
-    TabNav:{
+    TabNav: {
         screen: AppTabNavigator,
-        navigationOptions:{
-            title: 'this is a TabNavigator'
+        navigationOptions: {
+            title: "This is TabNavigator"
         }
-    }
+    },
+    // DrawerNav: {
+    //     screen: DrawerNav,
+    //     navigationOptions: {
+    //         title: "This is DrawerNavigator"
+    //     }
+    // },
 }, {
     navigationOptions: {
-
+        // header: null
     }
 });

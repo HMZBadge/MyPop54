@@ -47,8 +47,19 @@ export default class Page1 extends Component<Props> {
               navigation.navigate('Page2'); 
             }}
         />
+        <Button
+            title="改变主题new"
+            onPress={() => {
+                navigation.setParams({
+                    theme: {
+                        tintColor: 'orange',
+                        updateTime: new Date().getTime()
+                    }
+                })
+            }}
+        />
          <Button 
-            title = "改变主题"  
+            title = "改变主题old"  
             onPress = {()=>{
               
               navigation.setParams({
