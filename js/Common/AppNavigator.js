@@ -3,6 +3,7 @@ import HomePage from '../pages/HomePage';
 import Page1 from '../pages/Page1';
 import Page2 from '../pages/Page2';
 import Page3 from "../pages/Page3";
+import FlatListDemo from "../pages/tableView/FaltListDemo"
 
 import React from 'react';
 import {Component} from 'react-native';
@@ -10,6 +11,7 @@ import {Component} from 'react-native';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import AppTableView from "../pages/AppTableView";
 
 class TabBarComponent extends React.Component {
     constructor(props) {
@@ -131,6 +133,18 @@ export const AppStackNavigator = StackNavigator({
             title: "This is TabNavigator"
         }
     },
+    AppTableView: {
+        screen: AppTableView,
+        navigationOptions: {
+            title: "this is test tableView"
+        }
+    },
+    FlatListDemo: {
+        screen: FlatListDemo,
+        navigationOptions: {
+            title: "this is FlatListDemo"
+        }
+    }
     // DrawerNav: {
     //     screen: DrawerNav,
     //     navigationOptions: {
