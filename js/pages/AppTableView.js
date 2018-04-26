@@ -26,7 +26,7 @@ export default class AppTableView extends Component<Props> {
                     }}
                 />
                 <Button
-                    title={"SwipeableFlatListDemo"}
+                    title={"SwipeableFaltListDemo"}
                     onPress={() => {
                         navigation.navigate("SwipeableFlatListDemo")
                     }}

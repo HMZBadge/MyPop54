@@ -3,7 +3,7 @@ import HomePage from '../pages/HomePage';
 import Page1 from '../pages/Page1';
 import Page2 from '../pages/Page2';
 import Page3 from "../pages/Page3";
-import FlatListDemo from "../pages/tableView/FaltListDemo"
+import FlatListDemo from "../pages/tableView/FlatListDemo"
 
 import React from 'react';
 import {Component} from 'react-native';
@@ -12,6 +12,8 @@ import {Component} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import AppTableView from "../pages/AppTableView";
+import SwipeableFlatListDemo from "../pages/tableView/SwipeableFlatListDemo";
+import SectionListDemo from "../pages/tableView/SectionListDemo";
 
 class TabBarComponent extends React.Component {
     constructor(props) {
@@ -144,7 +146,20 @@ export const AppStackNavigator = StackNavigator({
         navigationOptions: {
             title: "this is FlatListDemo"
         }
+    },
+    SwipeableFlatListDemo: {
+        screen: SwipeableFlatListDemo,
+        navigationOptions: {
+            title: "SwipeableFlatListDemo"
+        }
+    },
+    SectionListDemo: {
+        screen: SectionListDemo,
+        navigationOptions: {
+            title: "SectionListDemo"
+        }
     }
+
     // DrawerNav: {
     //     screen: DrawerNav,
     //     navigationOptions: {
