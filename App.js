@@ -1,8 +1,9 @@
 import { AppStackNavigator } from "./js/Common/AppNavigator";
 
+import setup from './js/page/setup';
 
 
-export default AppStackNavigator;
+export default setup;
 
 
 // /**
