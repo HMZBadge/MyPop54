@@ -10,8 +10,9 @@ import {
 } from 'react-native';
 
 import TabNavigator from 'react-native-tab-navigator';
+import BaseComponent from './BaseComponent';
 
-export default class PopularPage extends Component {
+export default class PopularPage extends BaseComponent {
     constructor(props) {
         super(props);
 
