@@ -3,13 +3,15 @@ import React, { Component } from 'react';
 import {
     View,
     StyleSheet,
-    Text
+    Text,
+    Navigator,
+    Image,
+    DeviceEventEmitter
 } from 'react-native';
-import ThemeDao from '../expand/dao/ThemeDao';
-import { SplashScreen } from "react-native-splash-screen";
-import NavigatorUtil from '../util/NavigatorUtil';
 
-export default class WelcomePage extends Component {
+import TabNavigator from 'react-native-tab-navigator';
+
+export default class FavoritePage extends Component {
     constructor(props) {
         super(props);
 
@@ -17,17 +19,6 @@ export default class WelcomePage extends Component {
 
     componentDidMount() {
 
-        // SplashScreen.hide();
-        new ThemeDao().getTheme().then((data) => {
-            this.theme = data;
-        })
-        this.timer = setTimeout(() => {
-            
-            NavigatorUtil.resetToHomePage({
-                theme: this.theme,
-                navigation: this.props.navigation
-            })
-        }, 500);
     }
 
     componentWillUnmount() {
@@ -38,7 +29,7 @@ export default class WelcomePage extends Component {
     render() {
         return (<View style={styles.container}>
 
-            <Text style={styles.tips}>欢迎~~~~这是欢迎页</Text>
+            <Text style={styles.tips}>欢迎~~~~这是收藏页</Text>
         </View>);
     }
 
