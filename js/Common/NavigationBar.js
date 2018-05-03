@@ -49,6 +49,14 @@ export default class NavigationBar extends Component {
         };
     }
 
+    getButtonElement(data) {
+        return (
+            <View style={styles.navBarButton}>
+                {data ? data : null}
+            </View>
+        );
+    }
+
     render() {
         let statusBar = !this.props.statusBar.hidden ? <View style={styles.statusBar}>
             <StatusBar {...this.props.statusBar} />

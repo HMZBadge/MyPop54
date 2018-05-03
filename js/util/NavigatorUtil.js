@@ -28,6 +28,26 @@ export default class NavigatorUtil {
         navigation.dispatch(resetAction);
     }
 
+    /**
+     * 跳转到搜索页面
+     */
+    static goToSearchPage(params) {
+        const {navigation, theme} = params;
+        navigation.navigate('SearchPage', {
+            navigation: navigation,
+            theme: theme
+        })
+    }
+
+    /**
+     * 跳转到菜单详情页
+     */
+    static goToMenuPage(params, routeName) {
+        const {navigation} = params;
+        navigation.navigate(routeName, {
+            ...params
+        })
+    }
 
 
 }
