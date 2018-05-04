@@ -8,6 +8,7 @@ import {
     Image,
     DeviceEventEmitter,
     TouchableOpacity,
+    FlatList
 } from 'react-native';
 
 import TabNavigator from 'react-native-tab-navigator';
@@ -22,7 +23,7 @@ import LanguageDao, { FLAG_LANGUAGE } from '../expand/dao/LanguageDao';
 export default class PopularPage extends BaseComponent {
     constructor(props) {
         super(props);
-        this.languageDao = new LanguageDao(FLAG_LANGUAGE, flag_key);
+        this.languageDao = new LanguageDao(FLAG_LANGUAGE.flag_key);
         this.state = {
             languages: [],
             theme: this.props.theme,
@@ -92,7 +93,13 @@ export default class PopularPage extends BaseComponent {
                 tabBarBackgroundColor={this.state.theme.themeColor}
                 initialPage={0}
                 renderTabBar={() => <ScrollableTabBar style={{ height: 40, borderWidth: 0, elevation: 2 }} tabStyle={{ height: 39 }} />}
-            ></ScrollableTabView> : null;
+            >
+                {this.state.languages.map((result, i, arr) => {
+                    let language = arr[i];
+                    return language.checked ? <PopularTab key={i} tabLabel={language.name} {...this.props} /> : null;
+                })}
+            
+            </ScrollableTabView> : null;
 
         return (<View style={styles.container}>
             {navigationBar}
@@ -100,8 +107,35 @@ export default class PopularPage extends BaseComponent {
             <Text style={styles.tips}>欢迎~~~~这是最热页</Text>
         </View>);
     }
+}
+
+
+class PopularTab extends BaseComponent {
+    constructor(props) {
+        super(props);
+        this.isFavoriteChanged = false;
+        this.state = {
+            projectModels: [],
+            isLoading: false,
+            favoriteKeys: [],
+            theme: this.props.theme
+        }
+    }
+
+    render() {
+        return <View style={styles.container}>
+            <FlatList 
+                data={this.state.projectModels}
+                renderItem={(data)=> this.renderRow(data)}
+                keyExtractor={item => ""+item.item.id}
+                
+            />
+        </View>
+    }
+    
 
 }
+
 
 const styles = StyleSheet.create({
     container: {
