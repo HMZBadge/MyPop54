@@ -104,7 +104,7 @@ export default class PopularPage extends BaseComponent {
                 ref="scrollableTabView"
                 tabBarBackgroundColor={this.state.theme.themeColor}
                 initialPage={0}
-                renderTabBar={() => <ScrollableTabBar style={{ height: 40, borderWidth: 0, elevation: 2 }} tabStyle={{ height: 39 }} />}
+                renderTabBar={() => <ScrollableTabBar style={{ height: 40, borderWidth: 1, elevation: 2 }} tabStyle={{ height: 39 }} />}
             >
                 {this.state.languages.map((result, i, arr) => {
                     let language = arr[i];
@@ -115,7 +115,6 @@ export default class PopularPage extends BaseComponent {
 
         return (<View style={styles.container}>
             {navigationBar}
-            {/* <Text style={styles.tips}>欢迎~~~~这是最热页</Text> */}
             {content}
         </View>);
     }
