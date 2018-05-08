@@ -13,7 +13,7 @@
             "platform": "ios",
             "target": "iPhone 8 Plus",
             "sourceMaps": true,
-            "outDir": "${workspaceRoot}/.vscode/.react"
+            "outDir": "${workspaceRoot}/.vscode/.react",
         },
         {
             "type": "node",
