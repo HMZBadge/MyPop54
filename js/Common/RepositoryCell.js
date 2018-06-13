@@ -107,16 +107,16 @@ const styles = StyleSheet.create({
     cell_container: {
         backgroundColor: 'white',
         padding: 10,
-        marginLeft: 5,
-        marginRight: 5,
+        marginLeft: 15,
+        marginRight: 15,
         marginVertical: 3,
         borderColor: '#dddddd',
         borderWidth: 0.5,
-        borderRadius: 2,
+        borderRadius: 6,
         shadowColor: 'gray',
         shadowOffset: { width: 0.5, height: 0.5 },
         shadowOpacity: 0.4,
-        shadowRadius: 1,
+        shadowRadius: 6,
         elevation: 2
     },
 })
