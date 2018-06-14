@@ -12,7 +12,7 @@ export default class LanguageDao {
         this.flag = flag;
     }
 
-    fatch() {
+    fetch() {
         return new Promise((resolve, reject) => {
             AsyncStorage.getItem(this.flag, (error, result) => {
                 if (error) {

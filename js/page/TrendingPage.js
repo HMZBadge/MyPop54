@@ -10,11 +10,20 @@ import {
 } from 'react-native';
 
 import TabNavigator from 'react-native-tab-navigator';
+import LanguageDao, { FLAG_LANGUAGE } from '../expand/dao/LanguageDao';
+
 
 export default class TrendingPage extends Component {
     constructor(props) {
         super(props);
-
+        this.languages = new LanguageDao(FLAG_LANGUAGE.flag_language);
+        this.state = {
+            languages: [],
+            inVisible: false,
+            timeSpan: timeSpan[0],
+            theme: this.props.theme
+        }
+        this.loadLanguate();
     }
 
     componentDidMount() {
