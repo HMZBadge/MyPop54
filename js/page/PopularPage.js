@@ -46,7 +46,7 @@ export default class PopularPage extends BaseComponent {
     }
 
     loadLanguage() {
-        this.languageDao.fatch().then((languages) => {
+        this.languageDao.fetch().then((languages) => {
             if (languages) {
                 this.setState({
                     languages: languages,
