@@ -17,6 +17,7 @@ import LanguageDao, { FLAG_LANGUAGE } from '../expand/dao/LanguageDao';
 import { FLAG_TAB } from './HomePage';
 import NavigationBar from '../Common/NavigationBar';
 import ViewUtils from '../util/ViewUtils';
+import ActionUtils from '../util/ActionUtils';
 
 import ScrollableTabView, {ScrollableTabBar} from 'react-native-scrollable-tab-view';
 
@@ -283,13 +284,14 @@ class TrendingTab extends BaseComponent {
             key={projectModel.item.id}
             theme={this.state.theme}
             projectModel={projectModel}
-            // onSelect={() => ActionUtils.onSelectRepository({
-            //     projectModel: projectModel,
-            //     flag: FLAG_STORAGE.flag_trending,
-            //     ...this.props,
-            //     onUpdateFavorite: () => this.onUpdateFavorite(),
-            // })}
-            //onFavorite={(item, isFavorite) => ActionUtils.onFavorite(favoriteDao, item, isFavorite, FLAG_STORAGE.flag_trending)}
+            
+            onSelect={() => ActionUtils.onSelectRepository({
+                projectModel: projectModel,
+                flag: FLAG_STORAGE.flag_trending,
+                ...this.props,
+                onUpdateFavorite: () => this.onUpdateFavorite(),
+            })}
+            onFavorite={(item, isFavorite) => ActionUtils.onFavorite(favoriteDao, item, isFavorite, FLAG_STORAGE.flag_trending)}
         />
     }
 
