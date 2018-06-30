@@ -1,5 +1,5 @@
 import { StackNavigator, TabNavigator, TabBarBottom } from "react-navigation";
-import HomePage from '../pages/HomePage';
+import HomePageTest from '../pages/HomePageTest';
 import Page1 from '../pages/Page1';
 import Page2 from '../pages/Page2';
 import Page3 from "../pages/Page3";
@@ -95,8 +95,8 @@ export const AppTabNavigator = TabNavigator({
 
 
 export const AppStackNavigator = StackNavigator({
-    HomePage: {
-        screen: HomePage,
+    HomePageTest: {
+        screen: HomePageTest,
     },
     Page1: {
         screen: Page1,

@@ -301,16 +301,16 @@ class TrendingTab extends BaseComponent {
                 data={this.state.projectModels}
                 renderItem={(data)=> this.renderRow(data)}
                 keyExtractor={item => ""+(item.item.id || item.item.fullName)}
-                refreshControl={
-                    <RefreshControl 
-                        title='Loading...'
-                        titleColor={this.props.theme.themeColor}
-                        colors={[this.props.theme.themeColor]}
-                        refreshing={this.state.isLoading}
-                        onRefresh={()=> this.onRefresh()}
-                        tintColor={this.props.theme.themeColor}
-                    />
-                }
+                // refreshControl={
+                //     <RefreshControl 
+                //         title='Loading...'
+                //         titleColor={this.props.theme.themeColor}
+                //         colors={[this.props.theme.themeColor]}
+                //         refreshing={this.state.isLoading}
+                //         onRefresh={()=> this.onRefresh()}
+                //         tintColor={this.props.theme.themeColor}
+                //     />
+                // }
             />
         
         </View>

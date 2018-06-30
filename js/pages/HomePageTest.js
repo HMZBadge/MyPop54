@@ -21,11 +21,10 @@ const instructions = Platform.select({
 });
 
 
-type Props = {};
-export default class HomePage extends Component<Props> {
+export default class HomePageTest extends Component {
 
     static navigationOptions = {
-        title: "HomPage"
+        title: "HomePageTest"
     }
     render() {
         const { navigation } = this.props;
@@ -33,7 +32,7 @@ export default class HomePage extends Component<Props> {
         return (
             <View style={styles.container}>
                 <Text style={styles.welcome}>
-                    Welcome to HomePage
+                    Welcome to HomePageTest
             </Text>
                 <Button
                     title="go to page1"

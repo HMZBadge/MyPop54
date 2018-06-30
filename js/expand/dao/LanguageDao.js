@@ -11,6 +11,7 @@ export default class LanguageDao {
     constructor(flag) {
         this.flag = flag;
     }
+    
 
     fetch() {
         return new Promise((resolve, reject) => {
